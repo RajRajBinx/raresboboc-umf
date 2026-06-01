@@ -20,7 +20,6 @@ function initQuiz(mode) {
     return;
   }
   quizState.mode = mode;
-  setupTheme();
   setupEventListeners();
   startQuiz();
 }
@@ -28,14 +27,9 @@ function initQuiz(mode) {
 function setupEventListeners() {
   DOM.btnVerify.addEventListener('click', () => {
     const currentIdx = quizState.currentQuestionIndex;
-    if (quizState.mode === 'exerseaza') {
-      if (!quizState.isAnswerVerified[currentIdx]) {
-        verifyAnswer();
-      } else {
-        goToNextQuestion();
-      }
+    if (!quizState.isAnswerVerified[currentIdx]) {
+      verifyAnswer();
     } else {
-      // In simulare button could be 'Next' or 'Submit'
       goToNextQuestion();
     }
   });
@@ -197,7 +191,7 @@ function renderQuestion() {
     const isSelected = userAnswers.includes(idx);
     if (isSelected) li.classList.add('selected');
     
-    if (quizState.mode === 'exerseaza' && quizState.isAnswerVerified[currentIdx]) {
+    if (quizState.isAnswerVerified[currentIdx]) {
         const isCorrect = question.correct.includes(idx);
         if (isSelected && isCorrect) li.classList.add('correct');
         else if (isSelected && !isCorrect) li.classList.add('incorrect');
@@ -207,7 +201,7 @@ function renderQuestion() {
     
     li.innerHTML = `<div class="option-letter">${alphabet[idx]}</div><div class="option-text">${optionText}</div>`;
     
-    if (!(quizState.mode === 'exerseaza' && quizState.isAnswerVerified[currentIdx])) {
+    if (!quizState.isAnswerVerified[currentIdx]) {
         li.onclick = () => handleOptionClick(idx);
     }
     DOM.optionsList.appendChild(li);
@@ -240,11 +234,7 @@ function updateVerifyButton() {
   const isVerified = quizState.isAnswerVerified[currentIdx];
   const isLast = currentIdx === quizState.questions.length - 1;
 
-  if (quizState.mode === 'exerseaza') {
-    DOM.btnVerify.textContent = isVerified ? (isLast ? 'Vezi Rezultat' : 'Următoarea Întrebare') : 'Verifică Răspuns';
-  } else {
-    DOM.btnVerify.textContent = isLast ? 'Finalizează Testul' : 'Următoarea Întrebare';
-  }
+  DOM.btnVerify.textContent = isVerified ? (isLast ? (quizState.mode === 'exerseaza' ? 'Vezi Rezultat' : 'Finalizează Testul') : 'Următoarea Întrebare') : 'Verifică Răspuns';
   DOM.btnVerify.disabled = quizState.userAnswers[currentIdx].length === 0;
 }
 

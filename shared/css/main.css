@@ -126,15 +126,18 @@ body {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   color: var(--text-secondary);
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: var(--card-shadow);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  padding: 0;
 }
 
 .theme-toggle-btn:hover {
@@ -142,19 +145,35 @@ body {
   border-color: var(--accent-color);
   color: var(--accent-color);
   transform: translateY(-2px);
+  box-shadow: var(--card-hover-shadow);
 }
 
-.theme-toggle-btn:active {
-  transform: translateY(0);
+.theme-toggle-btn svg {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  position: absolute;
 }
 
-/* Ascundere pictograma in functie de tema */
+/* Ascundere pictograme in functie de tema */
 [data-theme="light"] .theme-toggle-btn .sun-icon {
-  display: none;
+  opacity: 0;
+  transform: translateY(20px) rotate(45deg);
 }
 [data-theme="dark"] .theme-toggle-btn .moon-icon {
-  display: none;
+  opacity: 0;
+  transform: translateY(-20px) rotate(-45deg);
 }
+
+[data-theme="light"] .theme-toggle-btn .moon-icon {
+  opacity: 1;
+  transform: translateY(0) rotate(0);
+}
+[data-theme="dark"] .theme-toggle-btn .sun-icon {
+  opacity: 1;
+  transform: translateY(0) rotate(0);
+}
+
 /* Navigation Subpagini */
 .subpage-nav {
   display: flex;
