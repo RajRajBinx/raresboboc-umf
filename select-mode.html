@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alege Modul - UMF</title>
+  <link rel="stylesheet" href="shared/css/main.css">
+  <link rel="stylesheet" href="shared/css/select-mode.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="subpage-nav">
+      <a href="index.html" class="btn-back"><span>Înapoi</span></a>
+      <button id="theme-toggle" class="theme-toggle-btn">Tema</button>
+    </nav>
+    <div class="setup-wrapper">
+      <div class="setup-container">
+        <div class="setup-header">
+          <h2 id="subject-title" class="setup-title">Pregătire</h2>
+          <p id="subject-subtitle" class="setup-subtitle"></p>
+        </div>
+        <div class="modes-grid">
+          <div class="mode-card" id="mode-exerseaza">
+            <h3 class="mode-name">Exersează</h3>
+            <p class="mode-desc">Învață în ritmul tău. Toate cele 10 variante afișate și corectare instantanee.</p>
+          </div>
+          <div class="mode-card" id="mode-simulare">
+            <h3 class="mode-name">Simulare Examen</h3>
+            <p class="mode-desc">Evaluează-ți nivelul. 48 de întrebări, 5 variante, cronometru și corectare la final.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="shared/js/shared.js"></script>
+  <script>
+    setupTheme();
+    const urlParams = new URLSearchParams(window.location.search);
+    const subject = urlParams.get('subject') || 'anatomie-1-2';
+    
+    document.getElementById('mode-exerseaza').onclick = () => {
+      window.location.href = `exerseaza.html?subject=${subject}`;
+    };
+    document.getElementById('mode-simulare').onclick = () => {
+      window.location.href = `simulare.html?subject=${subject}`;
+    };
+
+    // Load subject info for display
+    const script = document.createElement('script');
+    script.src = `data/${subject}.js`;
+    script.onload = () => {
+      document.getElementById('subject-title').textContent = `Pregătire ${quizData.title}`;
+      document.getElementById('subject-subtitle').textContent = `Anul ${quizData.year} • Semestrul ${quizData.semester}`;
+    };
+    document.body.appendChild(script);
+  </script>
+</body>
+</html>
