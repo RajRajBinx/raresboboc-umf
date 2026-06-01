@@ -120,14 +120,12 @@ function prepareSimulationQuestion(question) {
 
   if (question.type === 'CS') {
     if (correctPool.length > 0) activeCorrect = [correctPool[Math.floor(Math.random() * correctPool.length)]];
-    const remainingCorrect = correctPool.filter(idx => !activeCorrect.includes(idx));
-    activeIncorrect = shuffleArray([...incorrectPool, ...remainingCorrect]).slice(0, 5 - activeCorrect.length);
+    activeIncorrect = shuffleArray([...incorrectPool]).slice(0, 5 - activeCorrect.length);
   } else {
     const N_c = correctPool.length;
     const T = Math.max(2, Math.min(4, Math.floor(Math.random() * 3) + 2)); // 2-4
     activeCorrect = shuffleArray(correctPool).slice(0, Math.min(T, N_c));
-    const remainingCorrect = correctPool.filter(idx => !activeCorrect.includes(idx));
-    activeIncorrect = shuffleArray([...incorrectPool, ...remainingCorrect]).slice(0, 5 - activeCorrect.length);
+    activeIncorrect = shuffleArray([...incorrectPool]).slice(0, 5 - activeCorrect.length);
   }
 
   const combinedIndices = [...activeCorrect, ...activeIncorrect];

@@ -827,7 +827,6 @@ const quizData = {
       "correct": [
         0,
         1,
-        3,
         4,
         5,
         9
@@ -990,7 +989,6 @@ const quizData = {
         0,
         2,
         5,
-        7,
         8,
         9
       ]
@@ -2254,7 +2252,6 @@ const quizData = {
       ],
       "correct": [
         0,
-        2,
         3,
         5,
         7,
@@ -2280,7 +2277,6 @@ const quizData = {
         1,
         2,
         5,
-        6,
         8,
         9
       ]
@@ -2717,6 +2713,7 @@ const quizData = {
       "correct": [
         0,
         1,
+        2,
         4,
         8
       ]
@@ -2810,7 +2807,6 @@ const quizData = {
         2,
         4,
         5,
-        6,
         8
       ]
     },
@@ -3129,7 +3125,6 @@ const quizData = {
         "Artera mezenterică superioară"
       ],
       "correct": [
-        2,
         3,
         4,
         5,
@@ -3453,7 +3448,6 @@ const quizData = {
       ],
       "correct": [
         2,
-        3,
         4,
         6,
         7,
@@ -3479,7 +3473,6 @@ const quizData = {
         0,
         1,
         2,
-        5,
         6,
         8
       ]
@@ -3503,6 +3496,7 @@ const quizData = {
         1,
         2,
         6,
+        7,
         9
       ]
     },
@@ -3728,7 +3722,13 @@ const quizData = {
         "Porțiunea superioară vine în raport superior cu capul pancreasului",
         "Porțiunea descendentă este încrucișată anterior de rădăcina mezenterului"
       ],
-      "correct": []
+      "correct": [
+        0,
+        4,
+        5,
+        9,
+        10
+      ]
     },
     {
       "id": 163,
@@ -4760,7 +4760,6 @@ const quizData = {
       "correct": [
         1,
         3,
-        5,
         6,
         7,
         8
@@ -5084,7 +5083,8 @@ const quizData = {
         0,
         2,
         3,
-        7
+        7,
+        9
       ]
     },
     {
@@ -5405,7 +5405,6 @@ const quizData = {
         0,
         1,
         2,
-        4,
         6,
         9
       ]
@@ -5428,6 +5427,7 @@ const quizData = {
       "correct": [
         1,
         5,
+        6,
         7,
         9
       ]
@@ -5474,7 +5474,8 @@ const quizData = {
         1,
         2,
         3,
-        4
+        4,
+        9
       ]
     },
     {
@@ -5494,7 +5495,10 @@ const quizData = {
       ],
       "correct": [
         2,
-        8
+        3,
+        4,
+        8,
+        9
       ]
     },
     {
@@ -5516,6 +5520,7 @@ const quizData = {
         0,
         4,
         5,
+        8,
         9
       ]
     },
@@ -6228,7 +6233,6 @@ const quizData = {
         0,
         1,
         2,
-        4,
         5,
         7
       ]
@@ -6364,6 +6368,7 @@ const quizData = {
         "Pe polul inferior al ovarului se fixează ligamentul suspensor al ovarului"
       ],
       "correct": [
+        0,
         2,
         6,
         7,
@@ -6731,7 +6736,6 @@ const quizData = {
         "Fața posterioară a prostatei este acoperită de sfincterul intern al uretrei"
       ],
       "correct": [
-        1,
         2,
         3,
         4,
