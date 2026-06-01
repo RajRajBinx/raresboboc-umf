@@ -1,6 +1,6 @@
 const quizData = {
   "id": "anatomie-1-2",
-  "title": "Anatomie - Cap. 1-2",
+  "title": "Anatomie",
   "year": 1,
   "semester": 2,
   "questions": [

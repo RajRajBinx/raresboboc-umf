@@ -144,7 +144,7 @@ function prepareSimulationQuestion(question) {
 
 function initTimer() {
   quizState.timeSpent = 0;
-  quizState.timeLeft = 48 * 60;
+  quizState.timeLeft = 60 * 60;
   if (DOM.quizTimer) DOM.quizTimer.textContent = formatTime(quizState.timeLeft);
   quizState.timerInterval = setInterval(() => {
     quizState.timeLeft--;
@@ -164,7 +164,11 @@ function renderQuestion() {
   const userAnswers = quizState.userAnswers[currentIdx];
 
   DOM.quizProgressFill.style.width = `${(currentIdx / quizState.questions.length) * 100}%`;
-  DOM.questionCountText.textContent = `Întrebarea ${currentIdx + 1} din ${quizState.questions.length}`;
+  if (quizState.mode === 'simulare') {
+    DOM.questionCountText.textContent = `Întrebarea ${currentIdx + 1} din ${quizState.questions.length} (ID: ${question.id})`;
+  } else {
+    DOM.questionCountText.textContent = `Întrebarea ${currentIdx + 1} din ${quizState.questions.length}`;
+  }
 
   if (quizState.mode === 'exerseaza') {
     DOM.questionTypeBadge.textContent = 'Exersează';
@@ -296,7 +300,7 @@ function renderReviewPanel() {
     const header = document.createElement('div');
     header.className = 'review-q-header';
     header.innerHTML = `
-      <div class="review-q-title">${i + 1}. ${q.question}</div>
+      <div class="review-q-title">${i + 1}. ${quizState.mode === 'simulare' ? `(ID: ${q.id}) ` : ''}${q.question}</div>
       <div class="review-q-badge ${isCorrect ? 'correct' : 'incorrect'}">${isCorrect ? 'Corect' : 'Greșit'}</div>
     `;
     card.appendChild(header);

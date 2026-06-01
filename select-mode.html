@@ -19,17 +19,17 @@
     <div class="setup-wrapper">
       <div class="setup-container">
         <div class="setup-header">
-          <h2 id="subject-title" class="setup-title">Pregătire</h2>
+          <h2 id="subject-title" class="setup-title">Grile</h2>
           <p id="subject-subtitle" class="setup-subtitle"></p>
         </div>
         <div class="modes-grid">
           <div class="mode-card" id="mode-exerseaza">
             <h3 class="mode-name">Exersează</h3>
-            <p class="mode-desc">Învață în ritmul tău. Toate cele 10 variante afișate și corectare instantanee.</p>
+            <p class="mode-desc">Toate cele 300 de intrebari cu toate cele 10 raspunsuri.</p>
           </div>
           <div class="mode-card" id="mode-simulare">
-            <h3 class="mode-name">Simulare Examen</h3>
-            <p class="mode-desc">Evaluează-ți nivelul. 48 de întrebări, 5 variante, cronometru și corectare la final.</p>
+            <h3 class="mode-name">Simulare</h3>
+            <p class="mode-desc">48 de intrebari cu CM si CS</p>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
     const script = document.createElement('script');
     script.src = `data/${subject}.js`;
     script.onload = () => {
-      document.getElementById('subject-title').textContent = `Pregătire ${quizData.title}`;
+      document.getElementById('subject-title').textContent = `Grile ${quizData.title}`;
       document.getElementById('subject-subtitle').textContent = `Anul ${quizData.year} • Semestrul ${quizData.semester}`;
     };
     document.body.appendChild(script);
