@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alege modul de evaluare pentru Anatomie.">
+  <title>Alege Modul - UMF</title>
+  <link rel="stylesheet" href="../index.css">
+  <link rel="stylesheet" href="select-mode.css">
+</head>
+<body>
+
+  <div class="container">
+    <nav class="subpage-nav">
+      <a href="../index.html" class="btn-back" id="nav-back" aria-label="Înapoi">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="back-icon">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Înapoi</span>
+      </a>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Comută tema">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sun-icon">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="m4.93 4.93 1.41 1.41"></path>
+          <path d="m17.66 17.66 1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="m6.34 17.66-1.41 1.41"></path>
+          <path d="m19.07 4.93-1.41 1.41"></path>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="moon-icon">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </button>
+    </nav>
+
+    <div class="setup-wrapper">
+      <div class="setup-container">
+        <div class="setup-header">
+          <h2 class="setup-title">Pregătire Anatomie</h2>
+          <p class="setup-subtitle">Anul 1 • Semestrul 2 • Alege modul de studiu</p>
+        </div>
+
+        <div class="modes-grid">
+          <!-- Card Mod Exerseaza -->
+          <div class="mode-card" id="mode-exerseaza">
+            <div class="mode-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+            </div>
+            <h3 class="mode-name">Exersează</h3>
+            <p class="mode-desc">Învață în ritmul tău. Parcurge toate întrebările din curs, fiecare cu toate cele 10 răspunsuri afișate și corectare instantanee.</p>
+            <ul class="mode-features">
+              <li>
+                <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Toate cele 275 de întrebări din bază</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Afișează toate cele 10 variante</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Verificare și explicații pe loc la fiecare întrebare</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card Mod Simulare -->
+          <div class="mode-card" id="mode-simulare">
+            <div class="mode-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <h3 class="mode-name">Simulare Examen</h3>
+            <p class="mode-desc">Evaluează-ți nivelul. Un test rapid de 48 de întrebări împărțite egal între CS și CM. Doar 5 variante afișate, cronometru și corectare la final.</p>
+            <ul class="mode-features">
+              <li>
+                <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Exact 48 de întrebări (24 CS și 24 CM)</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Afișează doar 5 variante per întrebare</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="3" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Limită de timp: 48 de minute</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="select-mode.js"></script>
+</body>
+</html>

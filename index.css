@@ -1,0 +1,324 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* Variabile si culori de baza */
+:root {
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  /* Culori Tema Lumina */
+  --bg-color: #f8fafc;
+  --dot-color: #cbd5e1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --card-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+  
+  --sem1-color: #2563eb;
+  --sem2-color: #059669;
+  --accent-color: #6366f1;
+
+  /* Feedback */
+  --success-bg: #ecfdf5;
+  --success-border: #10b981;
+  --success-text: #065f46;
+  --error-bg: #fef2f2;
+  --error-border: #ef4444;
+  --error-text: #991b1b;
+  --info-bg: #f0f9ff;
+  --info-border: #0ea5e9;
+  --info-text: #0369a1;
+
+  /* Tag Badges */
+  --tag-blue-bg: #eff6ff;
+  --tag-blue-text: #1d4ed8;
+  --tag-blue-border: #bfdbfe;
+  --tag-purple-bg: #faf5ff;
+  --tag-purple-text: #6b21a8;
+  --tag-purple-border: #e9d5ff;
+  --tag-grey-bg: #f1f5f9;
+  --tag-grey-border: #cbd5e1;
+}
+
+[data-theme="dark"] {
+  /* Culori Tema Intuneric */
+  --bg-color: #0b0f19;
+  --dot-color: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  --card-bg: #111827;
+  --card-border: #1f2937;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+  --card-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  
+  --sem1-color: #3b82f6;
+  --sem2-color: #10b981;
+  --accent-color: #818cf8;
+
+  --success-bg: #064e3b;
+  --success-border: #059669;
+  --success-text: #a7f3d0;
+  --error-bg: #7f1d1d;
+  --error-border: #dc2626;
+  --error-text: #fca5a5;
+  --info-bg: #0c4a6e;
+  --info-border: #0284c7;
+  --info-text: #e0f2fe;
+
+  /* Tag Badges Dark Mode */
+  --tag-blue-bg: rgba(59, 130, 246, 0.15);
+  --tag-blue-text: #60a5fa;
+  --tag-blue-border: rgba(59, 130, 246, 0.3);
+  --tag-purple-bg: rgba(139, 92, 246, 0.15);
+  --tag-purple-text: #a78bfa;
+  --tag-purple-border: rgba(139, 92, 246, 0.3);
+  --tag-grey-bg: #1e293b;
+  --tag-grey-border: #334155;
+}
+
+/* Resetari generale */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: radial-gradient(var(--dot-color) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  color: var(--text-primary);
+  min-height: 100vh;
+  padding-bottom: 80px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 16px;
+}
+
+/* Header Principal */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.main-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, var(--sem1-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--card-shadow);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle-btn:hover {
+  background: var(--tag-grey-bg);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.theme-toggle-btn:active {
+  transform: translateY(0);
+}
+
+/* Ascundere pictograma in functie de tema */
+[data-theme="light"] .theme-toggle-btn .sun-icon {
+  display: none;
+}
+[data-theme="dark"] .theme-toggle-btn .moon-icon {
+  display: none;
+}
+/* Navigation Subpagini */
+.subpage-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-back:hover {
+  background: var(--tag-grey-bg);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateX(-4px);
+}
+
+.btn-back:active {
+  transform: translateX(0);
+}
+
+.btn-back svg {
+  transition: transform 0.2s ease;
+}
+
+.btn-back:hover svg {
+  transform: translateX(-2px);
+}
+
+
+/* Sectiuni Ani */
+.year-section {
+  margin-bottom: 48px;
+}
+
+.year-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: -0.5px;
+}
+
+.year-title::before {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 28px;
+  border-radius: 4px;
+  background: linear-gradient(to bottom, var(--sem1-color), var(--accent-color));
+}
+
+.year-section.year-2 .year-title::before {
+  background: linear-gradient(to bottom, var(--accent-color), var(--sem2-color));
+}
+
+/* Sectiuni Semestre */
+.semester-section {
+  margin-bottom: 32px;
+  padding-left: 18px;
+  border-left: 2px dashed var(--card-border);
+}
+
+.semester-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.semester-title .sem-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.sem-1-indicator {
+  background-color: var(--sem1-color);
+  box-shadow: 0 0 8px var(--sem1-color);
+}
+
+.sem-2-indicator {
+  background-color: var(--sem2-color);
+  box-shadow: 0 0 8px var(--sem2-color);
+}
+
+/* Grid de carduri */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Carduri materie */
+.subject-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  padding: 24px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.25s ease;
+}
+
+.subject-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--sem1-color);
+}
+
+.subject-card.sem-2::after {
+  background-color: var(--sem2-color);
+}
+
+.subject-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-shadow);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.subject-card:active {
+  transform: translateY(-2px);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+}

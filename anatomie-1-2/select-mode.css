@@ -1,0 +1,167 @@
+/* Stiluri specifice pentru Pagina de Selectie Mod */
+
+.container {
+  padding: 40px 16px;
+}
+
+.subpage-nav {
+  margin-bottom: 24px;
+}
+
+.setup-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 140px);
+  width: 100%;
+}
+
+.setup-container {
+  width: 100%;
+  max-width: 780px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  padding: 24px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeInSlide 0.4s ease forwards;
+}
+
+.setup-header {
+  text-align: center;
+}
+
+.setup-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--sem2-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 4px;
+}
+
+.setup-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Grilele de moduri */
+.modes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.mode-card {
+  border: 2px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--card-bg);
+}
+
+.mode-card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px -8px rgba(99, 102, 241, 0.25);
+  background: linear-gradient(to bottom, var(--card-bg), rgba(99, 102, 241, 0.02));
+}
+
+[data-theme="dark"] .mode-card:hover {
+  box-shadow: 0 12px 24px -8px rgba(129, 140, 248, 0.25);
+  background: linear-gradient(to bottom, var(--card-bg), rgba(129, 140, 248, 0.03));
+}
+
+.btn-back, .theme-toggle-btn {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+/* Iconita */
+.mode-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--tag-grey-bg);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  transition: all 0.2s;
+}
+
+.mode-card:hover .mode-icon {
+  background: var(--accent-color);
+  color: white;
+}
+
+.mode-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.mode-desc {
+  font-size: 0.825rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin-bottom: 14px;
+  min-height: 52px;
+}
+
+.mode-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.mode-features li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.775rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.mode-features li svg {
+  color: var(--sem2-color);
+  flex-shrink: 0;
+}
+
+/* Animatie */
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Query */
+@media (max-width: 768px) {
+  .modes-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .setup-container {
+    padding: 20px 16px;
+  }
+}
