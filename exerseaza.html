@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Exersează - UMF</title>
   <link rel="stylesheet" href="shared/css/main.css">
-  <link rel="stylesheet" href="shared/css/quiz.css">
+  <link rel="stylesheet" href="shared/css/quiz.css?v=2">
   <script src="shared/js/theme.js"></script>
 </head>
 <body>
@@ -60,12 +60,12 @@
     </div>
   </div>
   <script src="shared/js/shared.js"></script>
-  <script src="shared/js/quiz-engine.js"></script>
+  <script src="shared/js/quiz-engine.js?v=3"></script>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const subject = urlParams.get('subject') || 'anatomie-1-2';
     const script = document.createElement('script');
-    script.src = `data/${subject}.js`;
+    script.src = `data/${subject}.js?v=3`;
     script.onload = () => initQuiz('exerseaza');
     document.body.appendChild(script);
   </script>

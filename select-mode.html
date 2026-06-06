@@ -41,10 +41,10 @@
     const subject = urlParams.get('subject') || 'anatomie-1-2';
     
     document.getElementById('mode-exerseaza').onclick = () => {
-      window.location.href = `exerseaza.html?subject=${subject}`;
+      window.location.href = `exerseaza.html?subject=${subject}&v=3`;
     };
     document.getElementById('mode-simulare').onclick = () => {
-      window.location.href = `simulare.html?subject=${subject}`;
+      window.location.href = `simulare.html?subject=${subject}&v=3`;
     };
 
     // Load subject info for display

@@ -108,7 +108,8 @@ function preparePracticeQuestion(question) {
     options: finalIndices.map(idx => question.options[idx]),
     correct: finalIndices.map((origIdx, newIdx) => question.correct.includes(origIdx) ? newIdx : -1).filter(idx => idx !== -1),
     explanation: question.explanation,
-    originalIndices: finalIndices
+    originalIndices: finalIndices,
+    images: question.images
   };
 }
 
@@ -138,7 +139,8 @@ function prepareSimulationQuestion(question) {
     options: finalIndices.map(idx => question.options[idx]),
     correct: finalIndices.map((origIdx, newIdx) => activeCorrect.includes(origIdx) ? newIdx : -1).filter(idx => idx !== -1),
     explanation: question.explanation,
-    originalIndices: finalIndices
+    originalIndices: finalIndices,
+    images: question.images
   };
 }
 
@@ -181,6 +183,29 @@ function renderQuestion() {
   }
 
   DOM.questionText.textContent = question.question;
+
+  let imagesContainer = document.getElementById('question-images');
+  if (!imagesContainer) {
+    imagesContainer = document.createElement('div');
+    imagesContainer.id = 'question-images';
+    imagesContainer.className = 'question-images-container';
+    DOM.questionText.parentNode.insertBefore(imagesContainer, DOM.questionText.nextSibling);
+  }
+  imagesContainer.innerHTML = '';
+  
+  if (question.images && question.images.length > 0) {
+    question.images.forEach(imgSrc => {
+      const img = document.createElement('img');
+      img.src = imgSrc;
+      img.alt = 'Imagine Lipsă - ' + imgSrc;
+      img.className = 'question-image';
+      imagesContainer.appendChild(img);
+    });
+    imagesContainer.style.display = 'flex';
+  } else {
+    imagesContainer.style.display = 'none';
+  }
+
   if (DOM.explanationPanel) DOM.explanationPanel.style.display = 'none';
   DOM.optionsList.innerHTML = '';
 
@@ -304,6 +329,18 @@ function renderReviewPanel() {
       <div class="review-q-badge ${isCorrect ? 'correct' : 'incorrect'}">${isCorrect ? 'Corect' : 'Greșit'}</div>
     `;
     card.appendChild(header);
+
+    if (q.images && q.images.length > 0) {
+      const reviewImages = document.createElement('div');
+      reviewImages.className = 'question-images-container review-images';
+      q.images.forEach(imgSrc => {
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        img.className = 'question-image';
+        reviewImages.appendChild(img);
+      });
+      card.appendChild(reviewImages);
+    }
 
     const optionsWrapper = document.createElement('div');
     optionsWrapper.className = 'review-options';
